@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+<style>
+    /* Estilize o header como uma seção de fundo com a imagem de plano de fundo */
+    header {
+        background-image: url("{% static 'assets/kobe.png' %}");
+    }
+</style>
+    <header class="bi-lightning py-5 bg-warning text-dark">
+        <!-- Conteúdo do header aqui (título e parágrafo) -->
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder text-white">Login</h1>
+                <p class="display-4 fw-bolder text-white" id="paragrafo-separado">Realize login para aproveitar nossos produtos</p>
+            </div>
+        </div>
+    </header>
+    <br>
+    <div class="container">
+        <div class="row">
+            <center>
+                <!-- Criando o login -->
+                <div class="col-8">
+                        <form method="POST" action="{% url 'login' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                            <input type="text" class="form-control" name="username" placeholder="Digite seu Username">
+                            </div>
+                            <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Digite sua senha" name="password">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+            </center>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
+        </div>
+    </div>
+{% endblock %}

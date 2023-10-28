@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block content%}
+<style>
+    /* Estilize o header como uma seção de fundo com a imagem de plano de fundo */
+    header {
+        background-image: url("{% static 'assets/kobe.png' %}");
+        background-size: cover; /* Isso fará com que a imagem cubra todo o header */
+        background-position: center; /* Centraliza a imagem */
+        background-repeat: no-repeat; /* Evita que a imagem seja repetida */
+        height: 100vh; /* Defina a altura da seção de fundo */
+        color: white; /* Define a cor do texto para branco ou outra cor que funcione bem com o plano de fundo */
+        text-align: center; /* Centraliza o conteúdo */
+        padding: 20px; /* Adicione algum preenchimento interno para melhor legibilidade */
+    }
+    
+    #paragrafo-separado {
+        font-size: 2rem; /* Define o tamanho da fonte usando um valor relativo (rem) */
+        font-weight: bold; /* Define a fonte em negrito para mais destaque */
+        padding: 20px; /* Adicione preenchimento interno para maior destaque */
+        border-radius: 10px; /* Adicione cantos arredondados ao parágrafo */
+        color: black; /* Define a cor do texto para preto */
+    }
+</style>
+<header class="bg-dark py-5">
+    <!-- Conteúdo do header aqui (título e parágrafo) -->
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Bem vindo a Loja Oficial da NBA!!! </h1>
+            <p class="lead fw-bold text-white" id="paragrafo-separado">Na nossa loja, a paixão pela NBA se transforma em produtos autênticos. Seja parte do jogo com nossa seleção de produtos de qualidade que celebra o espírito do basquete da NBA. Bem-vindo ao mundo dos verdadeiros fãs.</p>
+        </div>
+    </div>
+</header>
+  <section class="py-5">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <h2 class="display-4 fw-bolder">Sobre Nós</h2>
+                  <p class="lead">Somos a Loja Oficial da NBA, sua fonte confiável para produtos autênticos da NBA, incluindo camisetas, bonés, acessórios e muito mais. Nossa missão é trazer a paixão e a emoção do basquete da NBA para os fãs de todo o mundo.</p>
+              </div>
+              <div class="col-lg-6">
+                  <h2 class="display-4 fw-bolder">Nossa Missão</h2>
+                  <p class="lead">Nossa missão é fornecer aos fãs da NBA os melhores produtos relacionados à NBA. Trabalhamos diretamente com a liga e as equipes para oferecer produtos autênticos e de alta qualidade que celebram o amor pelo basquete.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <section class="bg-light py-5">
+      <div class="container">
+          <h2 class="display-4 fw-bolder text-center">Nossa Equipe</h2>
+          <div class="row">
+              <div class="col-lg-4">
+                  <div class="text-center mb-4">
+                      <h3 class="fw-bolder">John Doe</h3>
+                      <p class="text-muted">Fundador</p>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="text-center mb-4">                    
+                      <h3 class="fw-bolder">Jane Smith</h3>
+                      <p class="text-muted">Diretor de Marketing</p>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="text-center mb-4">
+                      <h3 class="fw-bolder">Mike Johnson</h3>
+                      <p class="text-muted">Diretor de Operações</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+{% endblock %}

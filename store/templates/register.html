@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    /* Estilize o header como uma seção de fundo com a imagem de plano de fundo */
+    header {
+        background-image: url("{% static 'assets/kobe.png' %}");
+    }
+</style>
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Cadastro</h1>
+            <p class="lead fw-normal " id="paragrafo-separado">Preencha o formulário abaixo para ter acesso aos nossos produtos...</p>
+        </div>
+    </div>
+</header>
+<br><br><br><br><br>
+<div class="container">
+    <div class="row">
+    <center>
+        <div class="col-8 mx-auto">
+            <form method="POST" action="{% url 'register' %}">
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+                
+                <br><br>
+                
+                <button type="submit" class="btn btn-secondary">Cadastrar</button>
+            </form>
+        </div>
+    </center>
+    </div>
+</div>
+<br><br><br><br><br>
+{% endblock %}

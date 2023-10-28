@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{%block content %}
+<style>
+    /* Estilize o header como uma seção de fundo com a imagem de plano de fundo */
+    header {
+        background-image: url("{% static 'assets/kobe.png' %}");
+    }
+</style>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">NBA Store</h1>
+                    <p class="lead fw-bold text-white">
+                        Na NBA STORE, trazemos o espírito do jogo para o seu estilo. Descubra uma coleção exclusiva de roupas e acessórios que celebram o melhor do basquete, para que você possa vestir a paixão e a energia das quadras em cada momento da sua vida. Entre no jogo da moda da NBA e mostre ao mundo o seu amor pelo basquete."
+                    </p>
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    {% for product in products %}
+                    <!-- Lógica para produtos em promoção -->
+                    {% if product.is_sale   %}
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Card de promoção-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem;">Promoção</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="{{ product.image.url }}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{{ product.name }}</h5>
+                                    <!-- Produto em promoção -->
+                                   <strike>
+                                    R${{ product.price }}
+                                   </strike>
+                                   <br>
+                                   R${{ product.sale_price }}
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' product.id %}">Comprar</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="{{ product.image.url }}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{{ product.name }}</h5>
+                                    <!-- Product price-->
+                                   R${{ product.price }}
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' product.id %}">Comprar</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+{% endblock %}
+
