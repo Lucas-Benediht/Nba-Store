@@ -54,7 +54,7 @@ https://github.com/Lucas-Benediht/Nba-Store/assets/110697669/c618aac2-5339-4b98-
 1. Clone este repositório:
 
 ```bash
-git clone https://github.com/SeuNome/NBA-Store.git
+git clone https://github.com/Lucas-Benediht/Nba-Store.git
 ```
 
 2. Instale as dependências do projeto:
