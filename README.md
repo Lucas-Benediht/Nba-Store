@@ -31,7 +31,7 @@ Para fazer o deploy desse projeto rode
 
 ## Screenshots
 - Pagina inicial
-- https://github.com/Lucas-Benediht/Nba-Store/assets/110697669/de5eb045-fb80-42f2-abd2-53cd9396dea9
+```https://github.com/Lucas-Benediht/Nba-Store/assets/110697669/de5eb045-fb80-42f2-abd2-53cd9396dea9```
 
 
 ## Instalação
