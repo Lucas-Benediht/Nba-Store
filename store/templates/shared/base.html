@@ -15,6 +15,7 @@
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
 <body>
+    {% include 'partials/navbar.html' %}
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -23,7 +24,6 @@
             </div>
         {% endfor %}
     {% endif %}
-    {% include 'partials/navbar.html' %}
 
     {% block content %}{% endblock %}
     <!-- Footer-->
