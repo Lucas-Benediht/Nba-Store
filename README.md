@@ -1,5 +1,5 @@
 
-# Nba-Store 
+#🏀 <strong>Nba-Store</strong> 🏀
 
 A NBA Store é um projeto de e-commerce que oferece uma variedade de produtos relacionados à NBA, como camisetas, regatas, tênis e jaquetas. Este projeto foi desenvolvido usando o framework Django e utiliza um banco de dados hospedado na AWS (Amazon Web Services).
 
@@ -96,3 +96,9 @@ A NBA Store está agora em execução em http://localhost:8000/. Você pode come
 ## Contribuição
 
 Contribuições são bem-vindas! Se você deseja melhorar ou expandir este projeto, fique à vontade para criar um fork e enviar um pull request.
+
+## Contato❤️
+
+Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato:
+
+Lucas Benediht Caldeira - Email: lucas_benediht@hotmail.com 
