@@ -1,4 +1,5 @@
-{% extends 'base.html' %}
+{% extends 'shared/base.html'%}
+{% load static %}
 {% block content %}
 <style>
 .my-text-lg {
@@ -11,51 +12,49 @@
 .btn-secondary:hover {
     background-color: #0069d9; /* Cor de fundo ao passar o mouse */
     color: #fff; /* Cor do texto ao passar o mouse */
-  }
-  
+}
 </style>
 
-
 <br>
 <br>
-{% if product.is_sale   %}
-<center>
-    <div class="card mb-3" style="max-width: 3000px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="{{ product.image.url }}" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title my-text-lg">{{ product.name }}</h5>
-                    <br>
-                    <p class="card-text my-text-md">Descrição: {{ product.description }}</p>
-                    <p class="card-text my-text-md">Preço R${{ product.sale_price }}</p>
-                    <a href="{% url 'home' %}" class="btn btn-secondary">Comprar</a>
+{% if product.is_sale %}
+    <center>
+        <div class="card mb-3" style="max-width: 3000px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ product.image.url }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title my-text-lg">{{ product.name }}</h5>
+                        <br>
+                        <p class="card-text my-text-md">Descrição: {{ product.description }}</p>
+                        <p class="card-text my-text-md">Preço R${{ product.sale_price }}</p>
+                        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-secondary">Adicionar ao Carrinho</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</center>
-<br><br><br><br><br>
+    </center>
+    <br><br><br><br><br>
 {% else %}
-<center>
-    <div class="card mb-3" style="max-width: 3000px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="{{ product.image.url }}" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title my-text-lg">{{ product.name }}</h5>
-                    <br>
-                    <p class="card-text my-text-md">Descrição: {{ product.description }}</p>
-                    <p class="card-text my-text-md">Preço R$: {{ product.price }}</p>
-                    <a href="{% url 'home' %}" class="btn btn-secondary">Comprar</a>
+    <center>
+        <div class="card mb-3" style="max-width: 3000px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ product.image.url }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title my-text-lg">{{ product.name }}</h5>
+                        <br>
+                        <p class="card-text my-text-md">Descrição: {{ product.description }}</p>
+                        <p class="card-text my-text-md">Preço R$: {{ product.price }}</p>
+                        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-secondary">Adicionar ao Carrinho</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</center>
+    </center>
 {% endif %}
 {% endblock %}

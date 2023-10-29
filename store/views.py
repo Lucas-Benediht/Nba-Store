@@ -1,11 +1,13 @@
-from django.shortcuts import render, redirect
-from . models import Product, Category
+from django.shortcuts import render, redirect, get_object_or_404
+from . models import Product, Category, CartItem
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm # Usado para criar usuários
 from .forms import SignUpForm
 from django import forms
+from django.contrib.auth.decorators import login_required
+from django.db.models import F, Sum
 
 
 def category(request, foo):
@@ -77,5 +79,75 @@ def register_user(request):
         return render(request, 'register.html', {'form':form})
 
 
+def all_product(request):
+    products = Product.objects.all() # Pegando as caracteristicas
+    return render(request, 'all_product.html', {'products': products})
+
+from django.db.models import Sum
+
+@login_required
+def shopcart(request):
+    user = request.user
+    cart_items = CartItem.objects.filter(user=user)
+
+    # Calculate the total cart price
+    cart_total = cart_items.annotate(
+        total_price=F('product__price') * F('quantity')
+    ).aggregate(total=Sum('total_price'))['total']
+
+    # Calculate the total number of items in the cart
+    cart_count = cart_items.aggregate(total_count=Sum('quantity'))['total_count']
+
+    context = {
+        'cart_items': cart_items,
+        'cart_total': cart_total,
+        'cart_count': cart_count,  # Add the cart count to the context
+    }
+
+    return render(request, 'shopcart.html', context)
 
 
+
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    user = request.user
+
+    # Verifique se o item já está no carrinho do usuário
+    existing_item = CartItem.objects.filter(user=user, product=product).first()
+
+    if existing_item:
+        # Se o item já está no carrinho, aumente a quantidade
+        existing_item.quantity += 1
+        existing_item.save()
+    else:
+        # Caso contrário, crie um novo item no carrinho
+        new_item = CartItem(user=user, product=product, quantity=1)
+        new_item.save()
+
+    return redirect('shopcart')
+
+@login_required
+def remove_from_cart(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    user = request.user
+
+    # Verifique se o item está no carrinho do usuário
+    existing_item = CartItem.objects.filter(user=user, product=product).first()
+
+    if existing_item:
+        if existing_item.quantity > 1:
+            # Se houver mais de um item, diminua a quantidade
+            existing_item.quantity -= 1
+            existing_item.save()
+        else:
+            # Caso contrário, remova o item do carrinho
+            existing_item.delete()
+
+    return redirect('shopcart')
+
+def update_cart_total(user):
+    cart_items = CartItem.objects.filter(user=user)
+    total_price = sum(item.total_price for item in cart_items)
+    user.cart.total_price = total_price
+    user.cart.save()
+    

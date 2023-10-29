@@ -1,5 +1,7 @@
 from django.db import models
 import datetime
+from django.contrib.auth.models import User
+
 
 
 # Categorias
@@ -52,3 +54,14 @@ class Order(models.Model):
     
     def __str__(self):
         return self.product 
+    
+class CartItem(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Relaciona o item do carrinho ao usuário
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)  # Relaciona o item do carrinho ao produto
+    quantity = models.PositiveIntegerField(default=1)  # Quantidade do produto no carrinho
+
+    def __str__(self):
+        return f"{self.user.username}'s Cart - {self.product.name} x {self.quantity}"
+
+    def total_price(self):
+        return self.product.price * self.quantity
