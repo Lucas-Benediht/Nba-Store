@@ -30,9 +30,24 @@ Para fazer o deploy desse projeto rode
 
 
 ## Screenshots
-- Pagina inicial
-```https://github.com/Lucas-Benediht/Nba-Store/assets/110697669/de5eb045-fb80-42f2-abd2-53cd9396dea9```
+- Pagina inicial:
+```
+https://github.com/Lucas-Benediht/Nba-Store/assets/110697669/de5eb045-fb80-42f2-abd2-53cd9396dea9
+```
 
+-Categorias:
+```
+https://github.com/Lucas-Benediht/Nba-Store/assets/110697669/34e91d5d-13b9-4c97-80fe-6d341e841edf
+```
+- Descrição dos produtos:
+```
+https://github.com/Lucas-Benediht/Nba-Store/assets/110697669/f50b7229-697a-4f88-a72b-7c45325155d7
+```
+
+- Carrinho de compras:
+```
+https://github.com/Lucas-Benediht/Nba-Store/assets/110697669/c618aac2-5339-4b98-b56d-2455696559d5
+```
 
 ## Instalação
 
