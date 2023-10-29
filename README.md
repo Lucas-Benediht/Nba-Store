@@ -88,9 +88,9 @@ python manage.py createsuperuser
 ```bash
 python manage.py runserver
 ```
+
 ## Uso
 A NBA Store está agora em execução em http://localhost:8000/. Você pode começar a cadastrar produtos no painel de administração e navegar pelo site.
-
 
 
 ## Contribuição
