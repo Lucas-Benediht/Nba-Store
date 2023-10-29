@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(7qt3e&o7qd^37vkrp!bwnb6@-xv_^v(c!me@(xe+#nucwa-7s'
+SECRET_KEY = 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -112,34 +112,34 @@ USE_TZ = True
 
 # Configuração AWS
 
-AWS_ACCESS_KEY_ID = 'AKIA3VFCALILKP72YB6U'
+AWS_ACCESS_KEY_ID = 
 
-AWS_SECRET_ACCESS_KEY = 'MON4W1SJxkSGQwk13LxvL3zM3WX0biRfK6Pyx2Re'
+AWS_SECRET_ACCESS_KEY =
 
-AWS_STORAGE_BUCKET_NAME = 'nba-store'
+AWS_STORAGE_BUCKET_NAME = 
 
 
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_CUSTOM_DOMAIN =
 
-AWS_DEFAULT_ACL = 'public-read'
+AWS_DEFAULT_ACL = 
 AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400'
+    'CacheControl': 
 }
-AWS_LOCATION = 'static/upload/product/'
-AWS_QUERYSTRING_AUTH = False
+AWS_LOCATION = 
+AWS_QUERYSTRING_AUTH = 
 AWS_HEADERS = {
-    'Access-Control-Allow-Origin': '*',
+    '
 }
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
-STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+STATIC_URL =
 
 STATICFILES_DIRS = ['static/']
 
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+MEDIA_URL = 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
